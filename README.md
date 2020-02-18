@@ -1,6 +1,6 @@
 # krminalvardE-service
 E-service and webpage for kriminalvard- School project. 
 
-ASP.NET, 
+ASP.NET, C# 
 CSS  
 SQL
