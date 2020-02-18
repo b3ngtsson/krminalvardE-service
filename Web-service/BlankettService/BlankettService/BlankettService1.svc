@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="BlankettService.BlankettService1" CodeBehind="BlankettService1.svc.cs" %>
