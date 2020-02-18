@@ -1,0 +1,39 @@
+﻿@model List<WebApplication1.Models.Bookings>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/adminapplication.css" rel="stylesheet" />
+</head>
+
+<h3 class="title">Tillgängliga tider att boka</h3>
+<div class="product-field">
+
+    @foreach (var item in Model)
+    {
+
+        <div class="product-item">
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Boknings id:</span>
+                <span class="product-item-meta-data">@Html.DisplayFor(m => item.BookingId)</span>
+            </div>
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Datum:</span>
+                <span class="product-item-meta-data">@Html.DisplayFor(m => item.Date)</span>
+            </div>
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Time:</span>
+                <span class="product-item-meta-data">@Html.DisplayFor(m => item.Time)</span>
+            </div>
+            <div class="product-item-buttons">
+                <button class="button-primary" onmouseover="style.backgroundColor = 'rgba(192,192,192,0.5)'" onmouseout="style.backgroundColor = 'white'">@Html.ActionLink("Boka", "BokaTid", new { id = item.BookingId })</button>
+            </div>
+        </div>
+    }
+</div>
+
+

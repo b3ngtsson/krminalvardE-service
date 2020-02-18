@@ -1,0 +1,39 @@
+﻿@model WebApplication1.Models.LoginModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+    <link href="~/logincss.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="div1">
+        <div class="logindiv">
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post, new { @class = "loginform" }))
+            {
+             <div class="login-container">
+                <strong>Användarnamn</strong><br />
+                @Html.EditorFor(model => model.Username)<br />
+             </div>
+             <div class="login-container">
+             <strong>Lösenord</strong><br />
+              @Html.PasswordFor(model => model.Password)<br />
+             </div>
+             <div class="login-container">
+                 <input type="submit" value="logga in" class="button" /> <br />
+             </div>
+               <p style="color: red">@Html.DisplayFor(m => m.loginerrormessage) </p>
+            }
+
+        </div>
+    </div>
+   
+</body>
+</html>

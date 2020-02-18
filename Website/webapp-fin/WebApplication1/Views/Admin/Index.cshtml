@@ -1,0 +1,62 @@
+﻿@model List<WebApplication1.Models.FormClass>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/adminapplication.css" rel="stylesheet" />
+</head>
+    <div>
+        <div class="product-field">
+            @foreach (var item in Model) 
+            {
+
+            <div class="product-item">
+
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökare förnamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.FormId)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökare förnamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.VisitorFName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökare efternamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.VisitorLName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.PersonOfInterestFName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge efternamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.PersonOfInterestLName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge personnummer:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.InmateSSN)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökares Telefonnummer</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.PhoneNumber)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökares email:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.EMail)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Status</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => item.Status)</span>
+                </div>
+                <div class="product-item-buttons">
+                    <button class="button-primary" onmouseover="style.backgroundColor = 'rgba(192,192,192,0.5)'" onmouseout="style.backgroundColor = 'white'">@Html.ActionLink("Ändra", "Edit", new { id = item.FormId })</button>
+                </div>
+            </div>
+            }
+        </div>
+
+    </div>

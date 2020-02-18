@@ -1,0 +1,78 @@
+﻿@model WebApplication1.Models.Userpage
+    @{
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        ViewBag.Title = "MyPage";
+    }
+
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Index</title>
+        <link href="~/adminapplication.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="product-field">
+            <div class="product-item">
+                <h3>Din blankett</h3>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">FormID:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.FormId)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökare förnamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.VisitorFName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökare efternamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.VisitorLName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.PersonOfInterestFName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge efternamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.PersonOfInterestLName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge personnummer:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.InmateSSN)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökares Telefonnummer</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.PhoneNumber)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökares email:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.EMail)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Status: </span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.Status)</span>
+                </div>
+            </div>
+            <div class="product-item">
+                <h3>Dina bokade tider</h3>
+                <h4>@ViewBag.booktimeres</h4>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Datum:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.Date)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Tid:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.Time)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Intagen Förnamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.PersonOfInterestFName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Intagen Efternamn:</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.PersonOfInterestLName)</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

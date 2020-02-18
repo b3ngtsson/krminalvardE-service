@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <title> Kriminalvården</title>
+    <link href="~/frontpage.css" rel="stylesheet" />
+    <link href="~/startcss.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Serif:600&display=swap" rel="stylesheet"/>     
+</head>
+
+<h1> Kriminalvården - Besök </h1>
+
+<div class="product-field">
+    <div class="product-item" onclick="@("window.location.href='" + @Url.Action("Form", "Home") + "'");" ;>
+        <div class="product-item-image-block">
+            <img src="~/bilder/samtycke.jpg" class="product-item-image" />
+        </div>
+        <div class="product-item-meta">
+            <button class="button-primary" onclick="location.href='@Url.Action("Form", "Home")'">Skicka in blankett</button>
+
+        </div>
+    </div>
+    @*Session["usr"] = login.Username;
+        Session["admin"] = 1; //1 är för admin*@
+    
+        <div class="product-item" onclick="@("window.location.href='" + @Url.Action("Index", "Calender") + "'");" ;>
+            <div class="product-item-image-block">
+                <img src="~/bilder/calender.jpg" class="product-item-image" />
+            </div>
+            <div class="product-item-meta">
+                <button class="button-primary" onclick="location.href='@Url.Action("Kalender", "Home")'">Kalender</button>
+            </div>
+        </div>
+    
+
+
+</div>
+<div class="contain" style="border-top:1px solid black; margin-top: 10px;">
+    <div class="infopage-content">
+        <p class="introduction" style="margin-bottom:10px;">Den som är häktad eller sitter i fängelse kan få ta emot besök. Det är alltid häktet eller anstalten som bestämmer om besöket får ske.</p> <br />
+    </div>
+    <div class="clearfix block-text">
+        <div class="element-box">
+            <h2>Tillstånd för besök</h2>
+            <p>Den som är häktad eller sitter i fängelse måste ha ett tillstånd för att ta emot besök.
+                Innan ett besökstillstånd till en intagen i anstalt kan beviljas måste du som besökare först godkänna kontakten.
+                Den person som vill ta emot besök av dig skickar en blankett till dig som du fyller i och skickar tillbaka före besöket.
+                Det kan även hända att Kriminalvården ringer dig. Ska du besöka en intagen i häkte behöver du inte godkänna kontakten i förväg.</p>
+            <h2>Tid och plats</h2>
+            <p>När din ansökan skickats in granskas den av våra experter. Ifall din ansökan blir godkänt kan du boka tider via internet.</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+

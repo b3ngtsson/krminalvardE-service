@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <link href="~/navbar.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+</head>
+<body>
+<header>
+        <div class="backgroundcontent hidden-print">
+            <img src="~/bilder/Bakgrund.png" class="hidden-img" />
+            <div class="navbarDiv">
+                <div class="navbarDiv-text">
+                    <div class="navbarDiv-text-left">
+                        @Html.ActionLink("Blankett", "Form", "Home")
+                        @Html.ActionLink("Bokningar", "index", "Calender")
+                        @if (Session["admin"] == "1")
+                        {
+                            @Html.ActionLink("Ärenden", "index", "Admin")
+                            @Html.ActionLink("Bokning", "AdminCalander", "Calender")
+                            @Html.ActionLink("Intagna", "Inmates", "Admin")
+                        }
+                        @if (Session["usr"] != null)
+                        {
+                            @Html.ActionLink("Min Sida", "Index", "User")
+                        }
+
+                    </div>
+                    <img class="imgnav" src="~/bilder/krimvard3.png" onclick="@("window.location.href='" + @Url.Action("Index", "Home") + "'");" ; />
+
+                    <div class="navbarDiv-text-right"> 
+                        <a href="/login/logout" class="imgRight">
+                            <i class="fas fa-sign-out-alt" style="font-size:25px"></i>
+                        </a>
+                        <a href="/Login/Index" class="imgRight">
+                            <i class="fas fa-user" style="color:white; font-size:25px"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container body-content">
+        <div class="container-inner">
+            @RenderBody()
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-inner-left">
+                <h3 class="title">VI BRYTER DEN ONDA CIRKELN</h3>
+                <p>Kriminalvården är en del av rättsväsendet. Vi har ansvar för fängelser, frivård  och häkten. Vi arbetar för att göra samhället säkrare och tryggare. Vårt viktigaste mål är att minska återfall i brott – att bryta den onda cirkeln.</p>
+            </div>
+            <div class="footer-inner-right">
+                    <h3 class="title">Kontakt</h3>
+                    <p>Telefon: 077-228 08 00</p>
+                    <p>Adress till huvudkontoret: <span>Slottsgatan 78 601 80 Norrköping</span></p>
+                    <a href="https://www.kriminalvarden.se">Mer information</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+
+
+
+</body>
+</html>
+

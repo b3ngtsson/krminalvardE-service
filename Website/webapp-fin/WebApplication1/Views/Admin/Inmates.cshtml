@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.InmateClass
+@{
+    ViewBag.Title = "Inmates";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <link href="~/Form.css" rel="stylesheet" />
+    <link href="~/adminapplication.css" rel="stylesheet" />
+</head>
+
+<h3>Lägg till ny intagen</h3>
+<div class="product-field-form">
+    @using (Html.BeginForm("Inmates", "Admin", FormMethod.Post))
+    {
+        <div class="product-item">
+
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Intagen förnamn:</span>
+                <span class="product-item-meta-data">@Html.EditorFor(m => m.InmateFName)</span>
+            </div>
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Intagen efternamn:</span>
+                <span class="product-item-meta-data">@Html.EditorFor(m => m.InmateLName)</span>
+            </div>
+            <div class="product-item-buttons">
+                <input class="input-right" type="submit" value="Skapa" />
+            </div>
+            <div>
+                <h3>@Html.DisplayFor(m => m.Result)</h3>
+            </div>
+        </div>
+    }
+</div>
+

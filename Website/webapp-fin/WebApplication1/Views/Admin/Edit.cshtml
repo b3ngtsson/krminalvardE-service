@@ -1,0 +1,64 @@
+﻿@model WebApplication1.Models.FormClass
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<head>
+    <title> Blankett</title> 
+    <link href="~/adminedit.css" rel="stylesheet" />
+</head>
+ <br />
+<h1>Godkänn eller neka blankett</h1>
+<br />
+
+
+    <div class="product-field-form">
+        @using (Html.BeginForm("Edit", "Admin", FormMethod.Post))
+        {
+            <div class="product-item">
+
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">FormID:</span>
+                    <span class="product-item-meta-data">@Html.EditorFor(m => m.FormId)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökare förnamn:</span>
+                    <span class="product-item-meta-data">@Html.EditorFor(m => m.VisitorFName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökare efternamn:</span>
+                    <span class="product-item-meta-data">@Html.EditorFor(m => m.VisitorLName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge:</span>
+                    <span class="product-item-meta-data">@Html.EditorFor(m => m.PersonOfInterestFName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge efternamn:</span>
+                    <span class="product-item-meta-data">@Html.EditorFor(m => m.PersonOfInterestLName)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Fånge personnummer:</span>
+                    <span class="product-item-meta-data">@Html.EditorFor(m => m.InmateSSN)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökares Telefonnummer</span>
+                    <span class="product-item-meta-data">@Html.EditorFor(m => m.PhoneNumber)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Besökares email:</span>
+                    <span class="product-item-meta-data">@Html.EditorFor(m => m.EMail)</span>
+                </div>
+                <div class="product-item-meta">
+                    <span class="product-item-meta-heading">Godkänd/Nekad</span>
+                    <span class="product-item-meta-data">@Html.DisplayFor(m => m.Status)</span>
+                </div>
+                <div class="product-item-buttons">
+                    <input class="input-right" type="submit" value="Neka" name="status" />
+                    <input class="input-right" type="submit" value="Godkänn" name="status" />
+                </div>
+            </div>
+        }
+</div>
+

@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BlankettService1" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/BlankettService" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:element name="SaveForm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/BlankettService" minOccurs="0" name="b1" nillable="true" type="q1:Blankett" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveFormResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SaveFormResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateAccount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/BlankettService" minOccurs="0" name="b1" nillable="true" type="q2:Blankett" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateAccountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateAccountResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateForm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/BlankettService" minOccurs="0" name="b1" nillable="true" type="q3:Blankett" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateFormResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetForms">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFormsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/BlankettService" minOccurs="0" name="GetFormsResult" nillable="true" type="q4:ArrayOfBlankett" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeStatusForm">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/BlankettService" minOccurs="0" name="b1" nillable="true" type="q5:Blankett" />
+            <xs:element minOccurs="0" name="newStatus" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ChangeStatusFormResponse">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VerifyAccount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="inputUsername" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="inputPass" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VerifyAccountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="VerifyAccountResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateInamate">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="inmateFirstname" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="InmateSurname" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateInamateResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateInamateResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFormWithId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="formId" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFormWithIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/BlankettService" minOccurs="0" name="GetFormWithIdResult" nillable="true" type="q6:Blankett" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckStatusWithUsername">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="un" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckStatusWithUsernameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckStatusWithUsernameResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveAvailableTimeToDB">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="time" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SaveAvailableTimeToDBResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SaveAvailableTimeToDBResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAvailableTime">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAvailableTimeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAvailableTimeResult" nillable="true" type="q7:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllBookedTimes">
+        <xs:complexType>
+          <xs:sequence />
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetAllBookedTimesResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllBookedTimesResult" nillable="true" type="q8:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BookTime">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="time" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="inmateSSN" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="BookTimeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="BookTimeResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnbookTime">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="time" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="user" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="inmateSSN" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UnbookTimeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UnbookTimeResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckIfFull">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="date" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckIfFullResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckIfFullResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBooktimeWithId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBooktimeWithIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q9="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetBooktimeWithIdResult" nillable="true" type="q9:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VerifyAdminAccount">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="inputUsername" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="inputPass" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="VerifyAdminAccountResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="VerifyAdminAccountResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFormIdFromUsername">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetFormIdFromUsernameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetFormIdFromUsernameResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserIdWithUsername">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="s" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetUserIdWithUsernameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetUserIdWithUsernameResult" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookedTimeWithUserId">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="id" type="xs:int" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetBookedTimeWithUserIdResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q10="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetBookedTimeWithUserIdResult" nillable="true" type="q10:ArrayOfstring" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInmateSSNWIthUsername">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="un" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetInmateSSNWIthUsernameResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetInmateSSNWIthUsernameResult" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/BlankettService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/BlankettService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="Blankett">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="EMail" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FormId" type="xs:int" />
+          <xs:element minOccurs="0" name="InmateSSN" type="xs:int" />
+          <xs:element minOccurs="0" name="PersonOfInterestFName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PersonOfInterestLName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PhoneNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VisitorFName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="VisitorLName" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="Blankett" nillable="true" type="tns:Blankett" />
+      <xs:complexType name="ArrayOfBlankett">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="Blankett" nillable="true" type="tns:Blankett" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfBlankett" nillable="true" type="tns:ArrayOfBlankett" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="IBlankettService1_SaveForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveForm" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_SaveForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_CreateAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_CreateAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_UpdateForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateForm" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_UpdateForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetForms_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetForms" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetForms_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_ChangeStatusForm_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatusForm" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_ChangeStatusForm_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangeStatusFormResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_VerifyAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_VerifyAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_CreateInamate_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateInamate" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_CreateInamate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateInamateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetFormWithId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormWithId" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetFormWithId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormWithIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_CheckStatusWithUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStatusWithUsername" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_CheckStatusWithUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckStatusWithUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_SaveAvailableTimeToDB_InputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAvailableTimeToDB" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_SaveAvailableTimeToDB_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SaveAvailableTimeToDBResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetAvailableTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableTime" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetAvailableTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAvailableTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetAllBookedTimes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBookedTimes" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetAllBookedTimes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllBookedTimesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_BookTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:BookTime" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_BookTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BookTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_UnbookTime_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnbookTime" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_UnbookTime_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnbookTimeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_CheckIfFull_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIfFull" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_CheckIfFull_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckIfFullResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetBooktimeWithId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooktimeWithId" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetBooktimeWithId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBooktimeWithIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_VerifyAdminAccount_InputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyAdminAccount" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_VerifyAdminAccount_OutputMessage">
+    <wsdl:part name="parameters" element="tns:VerifyAdminAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetFormIdFromUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormIdFromUsername" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetFormIdFromUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFormIdFromUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetUserIdWithUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserIdWithUsername" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetUserIdWithUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserIdWithUsernameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetBookedTimeWithUserId_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookedTimeWithUserId" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetBookedTimeWithUserId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBookedTimeWithUserIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetInmateSSNWIthUsername_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetInmateSSNWIthUsername" />
+  </wsdl:message>
+  <wsdl:message name="IBlankettService1_GetInmateSSNWIthUsername_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetInmateSSNWIthUsernameResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBlankettService1">
+    <wsdl:operation name="SaveForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/SaveForm" message="tns:IBlankettService1_SaveForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/SaveFormResponse" message="tns:IBlankettService1_SaveForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/CreateAccount" message="tns:IBlankettService1_CreateAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/CreateAccountResponse" message="tns:IBlankettService1_CreateAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/UpdateForm" message="tns:IBlankettService1_UpdateForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/UpdateFormResponse" message="tns:IBlankettService1_UpdateForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetForms">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetForms" message="tns:IBlankettService1_GetForms_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetFormsResponse" message="tns:IBlankettService1_GetForms_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangeStatusForm">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/ChangeStatusForm" message="tns:IBlankettService1_ChangeStatusForm_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/ChangeStatusFormResponse" message="tns:IBlankettService1_ChangeStatusForm_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/VerifyAccount" message="tns:IBlankettService1_VerifyAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/VerifyAccountResponse" message="tns:IBlankettService1_VerifyAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateInamate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/CreateInamate" message="tns:IBlankettService1_CreateInamate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/CreateInamateResponse" message="tns:IBlankettService1_CreateInamate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormWithId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetFormWithId" message="tns:IBlankettService1_GetFormWithId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetFormWithIdResponse" message="tns:IBlankettService1_GetFormWithId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckStatusWithUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/CheckStatusWithUsername" message="tns:IBlankettService1_CheckStatusWithUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/CheckStatusWithUsernameResponse" message="tns:IBlankettService1_CheckStatusWithUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SaveAvailableTimeToDB">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/SaveAvailableTimeToDB" message="tns:IBlankettService1_SaveAvailableTimeToDB_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/SaveAvailableTimeToDBResponse" message="tns:IBlankettService1_SaveAvailableTimeToDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetAvailableTime" message="tns:IBlankettService1_GetAvailableTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetAvailableTimeResponse" message="tns:IBlankettService1_GetAvailableTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBookedTimes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetAllBookedTimes" message="tns:IBlankettService1_GetAllBookedTimes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetAllBookedTimesResponse" message="tns:IBlankettService1_GetAllBookedTimes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BookTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/BookTime" message="tns:IBlankettService1_BookTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/BookTimeResponse" message="tns:IBlankettService1_BookTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnbookTime">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/UnbookTime" message="tns:IBlankettService1_UnbookTime_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/UnbookTimeResponse" message="tns:IBlankettService1_UnbookTime_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfFull">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/CheckIfFull" message="tns:IBlankettService1_CheckIfFull_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/CheckIfFullResponse" message="tns:IBlankettService1_CheckIfFull_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBooktimeWithId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetBooktimeWithId" message="tns:IBlankettService1_GetBooktimeWithId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetBooktimeWithIdResponse" message="tns:IBlankettService1_GetBooktimeWithId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAdminAccount">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/VerifyAdminAccount" message="tns:IBlankettService1_VerifyAdminAccount_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/VerifyAdminAccountResponse" message="tns:IBlankettService1_VerifyAdminAccount_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFormIdFromUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetFormIdFromUsername" message="tns:IBlankettService1_GetFormIdFromUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetFormIdFromUsernameResponse" message="tns:IBlankettService1_GetFormIdFromUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdWithUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetUserIdWithUsername" message="tns:IBlankettService1_GetUserIdWithUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetUserIdWithUsernameResponse" message="tns:IBlankettService1_GetUserIdWithUsername_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBookedTimeWithUserId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetBookedTimeWithUserId" message="tns:IBlankettService1_GetBookedTimeWithUserId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetBookedTimeWithUserIdResponse" message="tns:IBlankettService1_GetBookedTimeWithUserId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetInmateSSNWIthUsername">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBlankettService1/GetInmateSSNWIthUsername" message="tns:IBlankettService1_GetInmateSSNWIthUsername_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBlankettService1/GetInmateSSNWIthUsernameResponse" message="tns:IBlankettService1_GetInmateSSNWIthUsername_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IBlankettService1" type="tns:IBlankettService1">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SaveForm">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/SaveForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateForm">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/UpdateForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetForms">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetForms" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangeStatusForm">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/ChangeStatusForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAccount">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/VerifyAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateInamate">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/CreateInamate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormWithId">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetFormWithId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckStatusWithUsername">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/CheckStatusWithUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SaveAvailableTimeToDB">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/SaveAvailableTimeToDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAvailableTime">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetAvailableTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBookedTimes">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetAllBookedTimes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BookTime">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/BookTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnbookTime">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/UnbookTime" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckIfFull">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/CheckIfFull" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBooktimeWithId">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetBooktimeWithId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="VerifyAdminAccount">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/VerifyAdminAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFormIdFromUsername">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetFormIdFromUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserIdWithUsername">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetUserIdWithUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBookedTimeWithUserId">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetBookedTimeWithUserId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetInmateSSNWIthUsername">
+      <soap:operation soapAction="http://tempuri.org/IBlankettService1/GetInmateSSNWIthUsername" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BlankettService1">
+    <wsdl:port name="BasicHttpBinding_IBlankettService1" binding="tns:BasicHttpBinding_IBlankettService1">
+      <soap:address location="http://localhost:12891/BlankettService1.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

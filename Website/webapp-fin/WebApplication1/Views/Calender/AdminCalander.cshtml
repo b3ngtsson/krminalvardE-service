@@ -1,0 +1,37 @@
+﻿@model WebApplication1.Models.Bookings
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AdminCalander</title>
+    <link href="~/adminapplication.css" rel="stylesheet" />
+</head>
+
+
+<div class="product-field">
+    @using (Html.BeginForm("AdminCalander", "Calender", FormMethod.Post, new { @class = "Form" }))
+    {
+    <div class="product-item">
+        <div class="product-item-meta">
+            <h3>Skapa tid för bokning</h3>
+        </div>
+        <div class="product-item-meta">
+            <span class="product-item-meta-heading">Datum format:(00/00-00):</span>
+            <span class="product-item-meta-data">@Html.EditorFor(m => m.Date)</span>
+        </div>
+        <div class="product-item-meta">
+            <span class="product-item-meta-heading">Tid format:(00:00-00:00):</span>
+            <span class="product-item-meta-data">@Html.EditorFor(m => m.Time)</span>
+        </div>
+        
+        <div class="product-item-buttons">
+            <input class="input-right" type="submit" value="Skapa tid" name="status" />
+        </div>
+    </div>
+    }
+</div>
+

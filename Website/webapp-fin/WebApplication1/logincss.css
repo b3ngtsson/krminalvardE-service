@@ -1,0 +1,39 @@
+﻿body{
+    align-content: center;
+}
+.div1 {
+    height: 600px;
+    text-align: center;
+}
+.logindiv {
+    text-align: center;
+}
+
+.loginform{
+    position: relative;
+    top: 60px;
+}
+.login-container {
+    text-align: center;
+    height: 70px;
+    width: 100%;
+    float: right;
+    font-size: 20px;
+}
+.button {
+    border-radius: 20px;
+    border: 1px solid black;
+    color: black;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    height: auto;
+    width: auto;
+    background-color: rgb(128, 128, 128);
+}
+
+.button:hover {
+    transform: scale(1.13);
+     background-color: antiquewhite;
+
+}

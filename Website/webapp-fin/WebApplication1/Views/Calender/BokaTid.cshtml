@@ -1,0 +1,38 @@
+﻿@model WebApplication1.Models.Userpage
+@{
+    ViewBag.Title = "BokaTid";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/adminapplication.css" rel="stylesheet" />
+<h2>Boka tid</h2>
+
+<div class="product-field-form">
+    @using (Html.BeginForm("BokaTid", "Calender", FormMethod.Post))
+    {
+        <div class="product-item">
+
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Datum:</span>
+                <span class="product-item-meta-data">@Html.EditorFor(m => m.Date)</span>
+            </div>
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Tid:</span>
+                <span class="product-item-meta-data">@Html.EditorFor(m => m.Time)</span>
+            </div>
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Besökar id:</span>
+                <span class="product-item-meta-data">@Html.EditorFor(m => m.User)</span>
+            </div>
+            <div class="product-item-meta">
+                <span class="product-item-meta-heading">Fånge:</span>
+                <span class="product-item-meta-data">@Html.EditorFor(m => m.PersonOfInterest)</span>
+            </div>
+            <div class="product-item-buttons">
+                <input class="input-right" type="submit" value="Boka" />
+            </div>
+        </div>
+    }
+    <h3 style="color:red">@Html.DisplayFor(m => m.Status)</h3>
+</div>
+
